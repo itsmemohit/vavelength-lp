@@ -132,6 +132,7 @@ a {
   font-size: 72px;
   font-weight: 200;
 margin-top: 80px;
+text-align: center;
 }
 
 .main span{
@@ -240,6 +241,8 @@ height: 236px;
   .waves img{
     width: 80%;
   }
+
+
 }
 
 @media only screen and (max-width: 426px) {
@@ -257,6 +260,7 @@ form{
 }
 
 .main h1{
+  text-align: center;
   font-size: 60px;
   margin-top: 20px;
   line-height: 70px;
@@ -267,6 +271,7 @@ form{
     flex-direction: column;
     justify-content: space-between;
     padding: 20px;
+    margin: 0 auto;
 }
 
   .waves{
