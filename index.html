@@ -9,27 +9,24 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
 
   <title>Frontend Mentor | Huddle landing page with single introductory section</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="styles.css">
 
   <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
     crossorigin="anonymous"></script>
   <script>
-    function SubForm() {
-      $.ajax({
-        url: "https://api.apispreadsheets.com/data/nKRXrV4sH7ZwwHoR/",
-        type: "post",
-        data: $("#myForm").serializeArray(),
-        success: function () {
-          alert("Form Data Submitted :)")
-        },
-        error: function () {
-          alert("There was an error :(")
-        }
+    var form = document.getElementById('sheetdb-form');
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      fetch(form.action, {
+        method: "POST",
+        body: new FormData(document.getElementById("sheetdb-form")),
+      }).then(
+        response => response.json()
+      ).then((html) => {
+        // you can put any JS code here
+        alert('success')
       });
-    }
+    });
   </script>
 </head>
 
@@ -65,10 +62,9 @@
           <h1>Experience something <span>special</span></h1>
           <p>A premium dating app for those who want to make a real connection effectively❤️‍🔥</p>
           <div class="form">
-            <form method="post" id="myForm">
-
-              <input type="email" id="email" name="entry.1234567890" placeholder="Enter your e-mail id" required>
-              <button type="submit" onclick="SubForm()">Join Waitlist</button>
+            <form id="sheetdb-form" method="post" action="https://sheetdb.io/api/v1/8ky39twvor36e">
+              <input name="data[email]" type="email" placeholder="Enter your e-mail id" required>
+              <button type="submit">Join Waitlist</button>
             </form>
           </div>
           <div class="subline">
