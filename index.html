@@ -14,7 +14,23 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="styles.css">
 
-
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+  <script>
+    function SubForm() {
+      $.ajax({
+        url: "https://api.apispreadsheets.com/data/nKRXrV4sH7ZwwHoR/",
+        type: "post",
+        data: $("#myForm").serializeArray(),
+        success: function () {
+          alert("Form Data Submitted :)")
+        },
+        error: function () {
+          alert("There was an error :(")
+        }
+      });
+    }
+  </script>
 </head>
 
 <body>
@@ -49,12 +65,11 @@
           <h1>Experience something <span>special</span></h1>
           <p>A premium dating app for those who want to make a real connection effectively❤️‍🔥</p>
           <div class="form">
-            <form method="post"
-              action="https://docs.google.com/forms/d/e/1FAIpQLSfZ9XU-FpM5dLsFm1Ap27-KwwcGJhYk-0gHzbdZGx8JGQeTBA/formResponse">
+            <form method="post" id="myForm">
 
               <input type="email" id="email" name="entry.1234567890" placeholder="Enter your e-mail id" required>
-              <button type="submit">Join Waitlist</button>
-
+              <button type="submit" onclick="SubForm()">Join Waitlist</button>
+            </form>
           </div>
           <div class="subline">
             <p class="byline">Talk first - see if you are interested - then Match</p>
